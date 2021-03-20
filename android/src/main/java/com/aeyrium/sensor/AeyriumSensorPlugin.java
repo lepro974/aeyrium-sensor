@@ -79,7 +79,7 @@ public class AeyriumSensorPlugin implements EventChannel.StreamHandler {
     final int worldAxisForDeviceAxisX;
     final int worldAxisForDeviceAxisY;
 
-    // Remap the axes as if the device screen was the instrument panel,
+    /*// Remap the axes as if the device screen was the instrument panel,
     // and adjust the rotation matrix for the device orientation.
     switch (mWindowManager.getDefaultDisplay().getRotation()) {
       case Surface.ROTATION_0:
@@ -104,13 +104,13 @@ public class AeyriumSensorPlugin implements EventChannel.StreamHandler {
     
     float[] adjustedRotationMatrix = new float[9];
     SensorManager.remapCoordinateSystem(rotationMatrix, worldAxisForDeviceAxisX,
-            worldAxisForDeviceAxisY, adjustedRotationMatrix);
+            worldAxisForDeviceAxisY, adjustedRotationMatrix);*/
 
     // Transform rotation matrix into azimuth/pitch/roll
     float[] orientation = new float[3];
     SensorManager.getOrientation(rotationMatrix, orientation);
 
-    double pitch = - orientation[3];
+    double pitch = - orientation[1];
     double roll = - orientation[2];
     double[] sensorValues = new double[2];
     sensorValues[0] = pitch;
