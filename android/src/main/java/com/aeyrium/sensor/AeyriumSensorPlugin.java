@@ -110,7 +110,7 @@ public class AeyriumSensorPlugin implements EventChannel.StreamHandler {
     float[] orientation = new float[3];
     SensorManager.getOrientation(rotationMatrix, orientation);
 
-    double pitch = - orientation[3]*5;
+    double pitch = /*- orientation[3]*5*/25;
     double roll = - orientation[2];
     double[] sensorValues = new double[2];
     sensorValues[0] = pitch;
